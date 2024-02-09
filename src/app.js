@@ -1,4 +1,4 @@
-const express = require(' express')
+const express = require('express')
 const app = express()
 const port = 3000
 
@@ -9,5 +9,5 @@ app.get('/', (req, res) => {
 
 // escutar a porta 3000
 app.listen(port, () =>{
-    console.log(`Server running on port ${port}`);
+    console.log(`Server running on port  http://localhost:3000/  ${port}`)
 })
