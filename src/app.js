@@ -7,5 +7,5 @@ app.get('/', (req, res) => {
     res.send('Olá, Mundo!')
   })
   
-export default app
+export default app;
 
