@@ -11,10 +11,13 @@ const selecoes = [
     {id:3, selecao: 'Sérvia', grupo: 'G'},
     {id:4, selecao: 'Camarões', grupo: 'G'},
 ]
-
+//retornar objeto por id
 function buscarSelecaoPorId (id) {
     return selecoes.filter(selecao => selecao.id == id)
-
+}
+//buscar o index do elemento no array através do id
+function buscarIndexSelecao (id) {
+    return selecoes.findIndex(selecao => selecao.id == id)
 }
 
 //criar rota  padrão ou raiz
@@ -28,6 +31,12 @@ app.get('/selecoes', (req, res) => {
 
 app.get('/selecoes/:id', (req, res) => {
     res.json(buscarSelecaoPorId(req.params.id))
+})
+
+app.delete('/selecoes/:id', (req, res) => {
+    let index = buscarIndexSelecao(req.params.id)
+    selecoes.splice(index, 1)
+    res.send('Deletado com sucesso!')
 })
 
 app.post('/selecoes', (req, res) => {
