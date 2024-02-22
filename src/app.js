@@ -39,6 +39,13 @@ app.delete('/selecoes/:id', (req, res) => {
     res.send('Deletado com sucesso!')
 })
 
+app.put('/selecoes/:id', (req, res) => {
+    let index = buscarIndexSelecao(req.params.id)
+    selecoes[index].selecao = req.body.selecao
+    selecoes[index].grupo = req.body.grupo
+    res.json(selecoes)
+})
+
 app.post('/selecoes', (req, res) => {
     selecoes.push(req.body)
     res.status(201).send('Seleção cadastrada com sucesso!')
